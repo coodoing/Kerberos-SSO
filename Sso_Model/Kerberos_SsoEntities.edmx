@@ -1,0 +1,209 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Kerberos_SsoModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2006/04/edm/ssdl">
+        <EntityContainer Name="Kerberos_SsoModelStoreContainer">
+          <EntitySet Name="LoginLog" EntityType="Kerberos_SsoModel.Store.LoginLog" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Site" EntityType="Kerberos_SsoModel.Store.Site" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="User" EntityType="Kerberos_SsoModel.Store.User" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="UserSite" EntityType="Kerberos_SsoModel.Store.UserSite" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="LoginLog">
+          <Key>
+            <PropertyRef Name="LoginLogID" />
+          </Key>
+          <Property Name="LoginLogID" Type="int" Nullable="false" />
+          <Property Name="UserCode" Type="varchar" MaxLength="255" />
+          <Property Name="LoginTime" Type="timestamp" StoreGeneratedPattern="Computed" />
+          <Property Name="LoginIP" Type="varchar" MaxLength="23" />
+          <Property Name="LoginOS" Type="varchar" MaxLength="23" />
+        </EntityType>
+        <EntityType Name="Site">
+          <Key>
+            <PropertyRef Name="SiteID" />
+          </Key>
+          <Property Name="SiteID" Type="int" Nullable="false" />
+          <Property Name="SiteUrl" Type="varchar" MaxLength="255" />
+          <Property Name="SiteName" Type="varchar" MaxLength="50" />
+          <Property Name="SiteDescription" Type="varchar" MaxLength="255" />
+          <Property Name="SiteCode" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="PublicKey" Type="varchar" MaxLength="255" />
+          <Property Name="PrivateKey" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="int" Nullable="false" />
+          <Property Name="UserCode" Type="varchar" Nullable="false" MaxLength="255" />
+          <Property Name="LoginName" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Password" Type="varchar" Nullable="false" MaxLength="100" />
+          <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="LastLoginIP" Type="varchar" MaxLength="23" />
+          <Property Name="LastLoginOS" Type="varchar" MaxLength="50" />
+          <Property Name="Phone" Type="int" />
+          <Property Name="UserState" Type="int" />
+          <Property Name="UserRemark" Type="varchar" MaxLength="255" />
+          <Property Name="LastLoginTime" Type="datetime" />
+          <Property Name="LastLogoutTime" Type="nchar" MaxLength="10" />
+          <Property Name="IsLogin" Type="bit" />
+        </EntityType>
+        <EntityType Name="UserSite">
+          <Key>
+            <PropertyRef Name="UserSiteID" />
+          </Key>
+          <Property Name="UserSiteID" Type="int" Nullable="false" />
+          <Property Name="SiteCode" Type="varchar" MaxLength="255" />
+          <Property Name="UserCode" Type="varchar" MaxLength="255" />
+          <Property Name="UserSiteName" Type="varchar" MaxLength="50" />
+          <Property Name="UserSitePassword" Type="varchar" MaxLength="100" />
+        </EntityType>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Kerberos_SsoModel" Alias="Self" xmlns="http://schemas.microsoft.com/ado/2006/04/edm">
+        <EntityContainer Name="Kerberos_SsoEntities">
+          <EntitySet Name="LoginLog" EntityType="Kerberos_SsoModel.LoginLog" />
+          <EntitySet Name="Site" EntityType="Kerberos_SsoModel.Site" />
+          <EntitySet Name="User" EntityType="Kerberos_SsoModel.User" />
+          <EntitySet Name="UserSite" EntityType="Kerberos_SsoModel.UserSite" />
+        </EntityContainer>
+        <EntityType Name="LoginLog">
+          <Key>
+            <PropertyRef Name="LoginLogID" />
+          </Key>
+          <Property Name="LoginLogID" Type="Int32" Nullable="false" />
+          <Property Name="UserCode" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="LoginTime" Type="Binary" MaxLength="8" FixedLength="true" />
+          <Property Name="LoginIP" Type="String" MaxLength="23" Unicode="false" FixedLength="false" />
+          <Property Name="LoginOS" Type="String" MaxLength="23" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Site">
+          <Key>
+            <PropertyRef Name="SiteID" />
+          </Key>
+          <Property Name="SiteID" Type="Int32" Nullable="false" />
+          <Property Name="SiteUrl" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="SiteName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="SiteDescription" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="SiteCode" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="PublicKey" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="PrivateKey" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="UserID" />
+          </Key>
+          <Property Name="UserID" Type="Int32" Nullable="false" />
+          <Property Name="UserCode" Type="String" Nullable="false" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="LoginName" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+          <Property Name="Email" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="LastLoginIP" Type="String" MaxLength="23" Unicode="false" FixedLength="false" />
+          <Property Name="LastLoginOS" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="Phone" Type="Int32" />
+          <Property Name="UserState" Type="Int32" />
+          <Property Name="UserRemark" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="LastLoginTime" Type="DateTime" />
+          <Property Name="LastLogoutTime" Type="String" MaxLength="10" Unicode="true" FixedLength="true" />
+          <Property Name="IsLogin" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="UserSite">
+          <Key>
+            <PropertyRef Name="UserSiteID" />
+          </Key>
+          <Property Name="UserSiteID" Type="Int32" Nullable="false" />
+          <Property Name="SiteCode" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="UserCode" Type="String" MaxLength="255" Unicode="false" FixedLength="false" />
+          <Property Name="UserSiteName" Type="String" MaxLength="50" Unicode="false" FixedLength="false" />
+          <Property Name="UserSitePassword" Type="String" MaxLength="100" Unicode="false" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="urn:schemas-microsoft-com:windows:storage:mapping:CS">
+        <EntityContainerMapping StorageEntityContainer="Kerberos_SsoModelStoreContainer" CdmEntityContainer="Kerberos_SsoEntities">
+          <EntitySetMapping Name="LoginLog">
+            <EntityTypeMapping TypeName="IsTypeOf(Kerberos_SsoModel.LoginLog)">
+              <MappingFragment StoreEntitySet="LoginLog">
+                <ScalarProperty Name="LoginLogID" ColumnName="LoginLogID" />
+                <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+                <ScalarProperty Name="LoginTime" ColumnName="LoginTime" />
+                <ScalarProperty Name="LoginIP" ColumnName="LoginIP" />
+                <ScalarProperty Name="LoginOS" ColumnName="LoginOS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Site">
+            <EntityTypeMapping TypeName="IsTypeOf(Kerberos_SsoModel.Site)">
+              <MappingFragment StoreEntitySet="Site">
+                <ScalarProperty Name="SiteID" ColumnName="SiteID" />
+                <ScalarProperty Name="SiteUrl" ColumnName="SiteUrl" />
+                <ScalarProperty Name="SiteName" ColumnName="SiteName" />
+                <ScalarProperty Name="SiteDescription" ColumnName="SiteDescription" />
+                <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+                <ScalarProperty Name="PublicKey" ColumnName="PublicKey" />
+                <ScalarProperty Name="PrivateKey" ColumnName="PrivateKey" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="User">
+            <EntityTypeMapping TypeName="IsTypeOf(Kerberos_SsoModel.User)">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+                <ScalarProperty Name="LoginName" ColumnName="LoginName" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LastLoginIP" ColumnName="LastLoginIP" />
+                <ScalarProperty Name="LastLoginOS" ColumnName="LastLoginOS" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="UserState" ColumnName="UserState" />
+                <ScalarProperty Name="UserRemark" ColumnName="UserRemark" />
+                <ScalarProperty Name="LastLoginTime" ColumnName="LastLoginTime" />
+                <ScalarProperty Name="LastLogoutTime" ColumnName="LastLogoutTime" />
+                <ScalarProperty Name="IsLogin" ColumnName="IsLogin" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserSite">
+            <EntityTypeMapping TypeName="IsTypeOf(Kerberos_SsoModel.UserSite)">
+              <MappingFragment StoreEntitySet="UserSite">
+                <ScalarProperty Name="UserSiteID" ColumnName="UserSiteID" />
+                <ScalarProperty Name="SiteCode" ColumnName="SiteCode" />
+                <ScalarProperty Name="UserCode" ColumnName="UserCode" />
+                <ScalarProperty Name="UserSiteName" ColumnName="UserSiteName" />
+                <ScalarProperty Name="UserSitePassword" ColumnName="UserSitePassword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2007/06/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram Name="Kerberos_SsoEntities">
+        <EntityTypeShape EntityType="Kerberos_SsoModel.LoginLog" Width="1.5" PointX="0.75" PointY="0.75" Height="1.9700325520833331" IsExpanded="true" />
+        <EntityTypeShape EntityType="Kerberos_SsoModel.Site" Width="1.5" PointX="2.75" PointY="0.75" Height="2.3520719401041665" IsExpanded="true" />
+        <EntityTypeShape EntityType="Kerberos_SsoModel.User" Width="1.5" PointX="4.75" PointY="0.75" Height="3.4981901041666665" IsExpanded="true" />
+        <EntityTypeShape EntityType="Kerberos_SsoModel.UserSite" Width="1.5" PointX="0.75" PointY="4.75" Height="1.9700325520833335" IsExpanded="true" /></Diagram></edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

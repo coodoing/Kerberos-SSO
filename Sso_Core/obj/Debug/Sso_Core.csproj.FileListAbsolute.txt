@@ -1,0 +1,7 @@
+E:\PRO\SQL&VS2008\Asp.Net编程\项目开发\Kerberos_Sso\Sso_Core\bin\Debug\Sso_Core.dll
+E:\PRO\SQL&VS2008\Asp.Net编程\项目开发\Kerberos_Sso\Sso_Core\bin\Debug\Sso_Core.pdb
+E:\PRO\SQL&VS2008\Asp.Net编程\项目开发\Kerberos_Sso\Sso_Core\bin\Debug\Sso_Model.dll
+E:\PRO\SQL&VS2008\Asp.Net编程\项目开发\Kerberos_Sso\Sso_Core\bin\Debug\Sso_Model.pdb
+E:\PRO\SQL&VS2008\Asp.Net编程\项目开发\Kerberos_Sso\Sso_Core\obj\Debug\ResolveAssemblyReference.cache
+E:\PRO\SQL&VS2008\Asp.Net编程\项目开发\Kerberos_Sso\Sso_Core\obj\Debug\Sso_Core.dll
+E:\PRO\SQL&VS2008\Asp.Net编程\项目开发\Kerberos_Sso\Sso_Core\obj\Debug\Sso_Core.pdb

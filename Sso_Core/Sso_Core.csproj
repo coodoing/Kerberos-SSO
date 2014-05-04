@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6D341DA2-EB37-431F-8B04-2B92ED04509C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sso_Core</RootNamespace>
+    <AssemblyName>Sso_Core</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.10.0, Culture=neutral, PublicKeyToken=1311cbc6b99c17f3, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Cache\CacheManager.cs" />
+    <Compile Include="Enumeration\LoginStatus.cs" />
+    <Compile Include="Helper\ConfigHelper.cs" />
+    <Compile Include="Helper\LogHelper.cs" />
+    <Compile Include="Helper\LogOutHelper.cs" />
+    <Compile Include="Helper\SsoSettingsHelper.cs" />
+    <Compile Include="Helper\StrObjHelper.cs" />
+    <Compile Include="Helper\UrlHelper.cs" />
+    <Compile Include="Interface\Client\IClient.cs" />
+    <Compile Include="Interface\Client\ICP.cs" />
+    <Compile Include="Interface\Client\IUserStateList.cs" />
+    <Compile Include="Interface\Right\IRightProvider.cs" />
+    <Compile Include="Interface\Server\IAPServer.cs" />
+    <Compile Include="Interface\Client\IKDCServer.cs" />
+    <Compile Include="Interface\Server\ISite.cs" />
+    <Compile Include="Interface\Server\IUser.cs" />
+    <Compile Include="Interface\Server\IASServer.cs" />
+    <Compile Include="Interface\Server\ISP.cs" />
+    <Compile Include="Interface\Server\ITGSServer.cs" />
+    <Compile Include="Interface\Server\IUserLoginList.cs" />
+    <Compile Include="Message\Authenticator.cs" />
+    <Compile Include="Message\KerbASRequest.cs" />
+    <Compile Include="Message\KerbTGSRequest.cs" />
+    <Compile Include="Message\KerbAPRequest.cs" />
+    <Compile Include="Message\STicket.cs" />
+    <Compile Include="Message\TGTicket.cs" />
+    <Compile Include="Passport\Client\Client.cs" />
+    <Compile Include="Passport\Client\SsoCP.cs" />
+    <Compile Include="Passport\Client\SsoUserStateList.cs" />
+    <Compile Include="Passport\Right\SecurityRightProvider.cs" />
+    <Compile Include="Passport\Server\APServer.cs" />
+    <Compile Include="Passport\Server\ASServer.cs" />
+    <Compile Include="Passport\Server\SsoSite.cs" />
+    <Compile Include="Passport\Server\SsoSP.cs" />
+    <Compile Include="Passport\Server\SsoUserLoginList.cs" />
+    <Compile Include="Passport\Server\TGSServer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Provider\Base\ProviderBase.cs" />
+    <Compile Include="Provider\Base\SsoProvider.cs" />
+    <Compile Include="Provider\LoginProvider.cs" />
+    <Compile Include="Security\DESCryption.cs" />
+    <Compile Include="Security\KeyType.cs" />
+    <Compile Include="Security\LongKeyManager.cs" />
+    <Compile Include="Security\Md5Cryption.cs" />
+    <Compile Include="Security\RSACryption.cs" />
+    <Compile Include="Service\LoginService.cs" />
+    <Compile Include="Web\AuthBase.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sso_Model\Sso_Model.csproj">
+      <Project>{C60B3921-BFE6-4D8F-AF0A-FA0777BBF67E}</Project>
+      <Name>Sso_Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\log4net.dll" />
+    <Content Include="Interface\ClassIntro.txt" />
+    <Content Include="Resource\Image\Kerberos协议认证过程.png" />
+    <Content Include="Resource\Image\访问流程.png" />
+    <Content Include="Resource\Image\首次登录流程.png" />
+    <Content Include="Resource\Kerberos原理与SSO\开题报告相关.txt" />
+    <Content Include="Resource\MSDN资料库\FormsAuthenticationTicket 类用于创建表示身份验证票证的对象，Forms 身份验证使用这些票证来标识已经过身份验证的用户.txt" />
+    <Content Include="Resource\ProHelp.txt" />
+    <Content Include="Resource\Q_A.txt" />
+    <Content Include="Resource\参考.txt" />
+    <Content Include="Resource\工程资料\asp_net网页缓存配置 - Do-websoftware - 博客园.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resource\Kerberos原理与SSO\利用Diffie_Hellman算法改进Kerberos协议--【算法的介绍】.pdf" />
+    <None Include="Resource\Kerberos原理与SSO\单点登录%28SSO%29的核心－－kerberos身份认证协议技术参考（三） - 技术频道  IT168.mht" />
+    <None Include="Resource\Kerberos原理与SSO\基于Kerberos协议的单点登录系统的研究与实现--重要【模块分类】.pdf" />
+    <None Include="Resource\Kerberos原理与SSO\基于改进Kerberos的Web单点登录方案 --CAS协议【代理。身份认证&amp;访问授权、用户权限控制】.pdf" />
+    <None Include="Resource\MSDN资料库\AppDomain 成员 %28System%29.mht" />
+    <None Include="Resource\MSDN资料库\ASP_NET 缓存.mht" />
+    <None Include="Resource\MSDN资料库\BitConverter 类 %28System%29.mht" />
+    <None Include="Resource\MSDN资料库\Convert 类 %28System%29.mht" />
+    <None Include="Resource\MSDN资料库\Converter 类 %28System_Web_Configuration%29.mht" />
+    <None Include="Resource\MSDN资料库\DESCryptoServiceProvider 类 %28System_Security_Cryptography%29.mht" />
+    <None Include="Resource\MSDN资料库\ExeConfigurationFileMap 成员 %28System_Configuration%29.mht" />
+    <None Include="Resource\MSDN资料库\FormsAuthenticationTicket 类 %28System_Web_Security%29.mht" />
+    <None Include="Resource\MSDN资料库\HttpContext 类 %28System_Web%29.mht" />
+    <None Include="Resource\MSDN资料库\HttpUtility 类 %28System_Web%29.mht" />
+    <None Include="Resource\MSDN资料库\Uri 类 %28System%29.mht" />
+    <None Include="Resource\MSDN资料库\UTF8Encoding 类 %28System_Text%29.mht" />
+    <None Include="Resource\工程资料\ASP_NET 2_0页面生命周期（转） - shunli987的日志 - 网易博客.mht" />
+    <None Include="Resource\工程资料\ASP_NET 如何取得 Request URL 的各個部分 - 博客园.mht" />
+    <None Include="Resource\工程资料\C#中读写INI配置文件 - 博客园知识库.mht" />
+    <None Include="Resource\工程资料\C#基础：ref和out的区别 - 过江的博客 - 博客园.mht" />
+    <None Include="Resource\工程资料\C#编写网站时Session会无故丢失及解决方案%28总结%29.mht" />
+    <None Include="Resource\工程资料\C#编程之 如何获取本地和远程主机的IP及MAC地址%28转%29 - blueskyc%27s blog - 博客园.mht" />
+    <None Include="Resource\工程资料\Convert、Parse、TryParse、%28int%29 区别 - 秋天里的_NET - 博客园.mht" />
+    <None Include="Resource\工程资料\Cookie是什么？用法是怎样？与SESSION有什么区别？（一） - 博客园知识库.mht" />
+    <None Include="Resource\工程资料\DataTable常用操作总结 - Nestcn - 博客园.mht" />
+    <None Include="Resource\工程资料\request_querystring%28id%29与request%28id%29区别 - qyz123 - 博客园.mht" />
+    <None Include="Resource\工程资料\[转]C# DES 加密-解密类库，支持文件和中文-UNICODE字符，返回BASE64编码字符串 - mimi001 - 博客园.mht" />
+    <None Include="Resource\工程资料\[转]C#中使用自定义配置%28app_config%29 - 技术立身,超越技术 - 博客园.mht" />
+    <None Include="Resource\工程资料\做网站用UTF-8还是GB2312？ - 博客园知识库.mht" />
+    <None Include="Resource\工程资料\哈希表（HashTable） - alon - 博客园.mht" />
+    <None Include="Resource\说明.docx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="ErrorInfo\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
